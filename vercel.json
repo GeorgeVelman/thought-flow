@@ -1,0 +1,20 @@
+{
+	"builds": [
+		{
+			"src": "src/index.js",
+			"use": "@vercel/node"
+		}
+	],
+	"routes": [
+		{ "handle": "filesystem" },
+		{ "src": "/.*", "dest": "/index.html" }
+	],
+	"alias": {
+		"@": "./src",
+		"@components": "./src/components",
+		"@pages": "./src/pages",
+		"@images": "./src/images",
+		"@redux": "./src/redux",
+		"@public": "./public"
+	}
+}

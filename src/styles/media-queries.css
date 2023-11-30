@@ -1,0 +1,27 @@
+@media (max-width: 1200px) {
+	.products {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	.product-card__image {
+		margin: 0 auto 10px;
+	}
+}
+
+@media (max-width: 768px) {
+	.products {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	.product-card__image {
+		margin: 0 auto 10px;
+	}
+}
+
+@media (max-width: 360px) {
+	.button_desktop {
+		display: none;
+	}
+
+	.button_mobile {
+		display: inline-block;
+	}
+}

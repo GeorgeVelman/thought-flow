@@ -20,6 +20,8 @@
 	border-radius: 5px;
 	padding: 0 10px;
 	text-decoration: none;
+	display: flex;
+	align-items: center;
 
 	&:hover {
 		background-color: #4361ee;

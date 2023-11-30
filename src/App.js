@@ -1,15 +1,15 @@
+import Header from '@components/header/Header'
 import Container from '@mui/material/Container'
+import AddPost from '@pages/AddPost/AddPost'
+import FullPost from '@pages/FullPost'
+import Home from '@pages/Home'
+import Login from '@pages/Login/Login'
+import Registration from '@pages/registration/Registration'
+import { fetchAuthMe } from '@redux/slices/auth/actions'
+import { selectIsAuth } from '@redux/slices/auth/auth'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
-import Header from './components/header/Header'
-import AddPost from './pages/AddPost/AddPost.jsx'
-import FullPost from './pages/FullPost'
-import Home from './pages/Home'
-import Login from './pages/Login/Login'
-import Registration from './pages/registation/Registration'
-import { fetchAuthMe } from './redux/slices/auth/actions.js'
-import { selectIsAuth } from './redux/slices/auth/auth.js'
 
 function App() {
 	const dispatch = useDispatch()

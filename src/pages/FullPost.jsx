@@ -1,10 +1,10 @@
+import axios from '@/axios'
+import CommentsBlock from '@/components/CommentsBlock'
+import { Post } from '@/components/Post/Post'
+import Comment from '@components/Comment/Comment'
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import { useParams } from 'react-router-dom'
-import axios from '../axios.js'
-import Comment from '../components/Comment/Comment'
-import CommentsBlock from '../components/CommentsBlock'
-import { Post } from '../components/Post/Post'
 
 const FullPost = () => {
 	const [data, setData] = React.useState(null)

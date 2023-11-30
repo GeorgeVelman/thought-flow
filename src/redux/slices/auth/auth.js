@@ -1,5 +1,5 @@
+import { authExtraReducers } from '@redux/slices/auth/authExtraReducers'
 import { createSlice } from '@reduxjs/toolkit'
-import { authExtraReducers } from './authExtraReducers'
 
 const initialState = {
 	data: null,

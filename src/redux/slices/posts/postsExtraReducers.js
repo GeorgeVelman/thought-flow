@@ -1,4 +1,8 @@
-import { fetchPosts, fetchRemovePost, fetchTags } from './actions'
+import {
+	fetchPosts,
+	fetchRemovePost,
+	fetchTags,
+} from '@redux/slices/posts/actions'
 
 export const postsExtraReducers = {
 	// Получение статей

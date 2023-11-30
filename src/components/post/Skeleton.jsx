@@ -2,7 +2,7 @@ import Skeleton from '@mui/material/Skeleton'
 import Stack from '@mui/material/Stack'
 import React from 'react'
 
-import styles from './post.module.scss'
+import styles from '@components/post/post.module.scss'
 
 const PostSkeleton = () => {
 	return (

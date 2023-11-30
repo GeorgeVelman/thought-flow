@@ -1,6 +1,6 @@
+import { authReducer } from '@redux/slices/auth/auth'
+import { postsReducer } from '@redux/slices/posts/posts'
 import { configureStore } from '@reduxjs/toolkit'
-import { authReducer } from './slices/auth/auth'
-import { postsReducer } from './slices/posts/posts'
 
 const store = configureStore({
 	reducer: {

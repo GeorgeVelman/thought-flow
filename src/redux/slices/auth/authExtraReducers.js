@@ -1,4 +1,8 @@
-import { fetchAuth, fetchAuthMe, fetchRegister } from './actions'
+import {
+	fetchAuth,
+	fetchAuthMe,
+	fetchRegister,
+} from '@redux/slices/auth/actions.js'
 
 export const authExtraReducers = {
 	[fetchAuth.pending]: state => {

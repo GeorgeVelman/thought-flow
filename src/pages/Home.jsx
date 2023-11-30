@@ -3,11 +3,11 @@ import Tab from '@mui/material/Tab'
 import Tabs from '@mui/material/Tabs'
 import React from 'react'
 
+import CommentsBlock from '@components/CommentsBlock'
+import { Post } from '@components/Post/Post'
+import TagsBlock from '@components/tagsBlock/TagsBlock'
+import { fetchPosts, fetchTags } from '@redux/slices/posts/actions'
 import { useDispatch, useSelector } from 'react-redux'
-import CommentsBlock from '../components/CommentsBlock'
-import { Post } from '../components/Post/Post'
-import TagsBlock from '../components/tagsBlock/TagsBlock'
-import { fetchPosts, fetchTags } from '../redux/slices/posts/actions'
 
 const Home = () => {
 	const dispatch = useDispatch()

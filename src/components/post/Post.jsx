@@ -6,12 +6,12 @@ import IconButton from '@mui/material/IconButton'
 import clsx from 'clsx'
 import React from 'react'
 
+import UserInfo from '@components/UserInfo/UserInfo'
+import styles from '@components/post/post.module.scss'
+import { fetchRemovePost } from '@redux/slices/posts/actions'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { fetchRemovePost } from '../../redux/slices/posts/actions'
-import UserInfo from '../UserInfo/UserInfo'
 import PostSkeleton from './Skeleton'
-import styles from './post.module.scss'
 
 export const Post = ({
 	id,

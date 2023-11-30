@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from './comment.module.scss'
+import styles from '@components/comment/comment.module.scss'
 
 import Avatar from '@mui/material/Avatar'
 import Button from '@mui/material/Button'

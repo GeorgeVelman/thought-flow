@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { postsExtraReducers } from './postsExtraReducers'
+import { postsExtraReducers } from '@redux/slices/posts/postsExtraReducers'
 
 const initialState = {
 	posts: {

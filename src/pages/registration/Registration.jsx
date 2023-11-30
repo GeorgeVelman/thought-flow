@@ -3,13 +3,13 @@ import Button from '@mui/material/Button'
 import Paper from '@mui/material/Paper'
 import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
+import styles from '@pages/registration/registration.module.scss'
+import { fetchRegister } from '@redux/slices/auth/actions'
+import { selectIsAuth } from '@redux/slices/auth/auth'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
-import { fetchRegister } from '../../redux/slices/auth/actions.js'
-import { selectIsAuth } from '../../redux/slices/auth/auth.js'
-import styles from './registration.module.scss'
 
 const Registration = () => {
 	const dispatch = useDispatch()

@@ -5,8 +5,8 @@ import Container from '@mui/material/Container'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { logout, selectIsAuth } from '../../redux/slices/auth/auth'
-import styles from './header.module.scss'
+import styles from '@components/header/header.module.scss'
+import { logout, selectIsAuth } from '@redux/slices/auth/auth'
 
 const Header = () => {
 	const dispatch = useDispatch()

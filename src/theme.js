@@ -1,6 +1,6 @@
 import { createTheme } from '@mui/material/styles'
 
-export const theme = createTheme({
+const theme = createTheme({
 	shadows: Array(25).fill('none'),
 	palette: {
 		primary: {
@@ -14,3 +14,5 @@ export const theme = createTheme({
 		},
 	},
 })
+
+export default theme

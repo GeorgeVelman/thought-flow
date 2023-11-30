@@ -4,12 +4,12 @@ import TextField from '@mui/material/TextField'
 import React from 'react'
 import SimpleMDE from 'react-simplemde-editor'
 
+import axios from '@/axios'
+import styles from '@pages/addPost/addPost.module.scss'
+import { selectIsAuth } from '@redux/slices/auth/auth'
 import 'easymde/dist/easymde.min.css'
 import { useSelector } from 'react-redux'
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
-import axios from '../../axios.js'
-import { selectIsAuth } from '../../redux/slices/auth/auth'
-import styles from './addPost.module.scss'
 
 const AddPost = () => {
 	const { id } = useParams()

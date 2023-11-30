@@ -30,9 +30,11 @@ module.exports = {
 	resolve: {
 		extensions: ['.*', '.js', '.jsx'],
 		alias: {
-			'@': path.resolve(__dirname, 'src/'),
+			'@': path.resolve(__dirname, 'src'),
 			'@components': path.resolve(__dirname, 'src/components'),
+			'@pages': path.resolve(__dirname, 'src/pages'),
 			'@images': path.resolve(__dirname, 'src/images'),
+			'@redux': path.resolve(__dirname, 'src/redux'),
 			'@public': path.resolve(__dirname, 'public'),
 		},
 	},

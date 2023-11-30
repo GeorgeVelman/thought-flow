@@ -8,9 +8,9 @@ import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
 
-import { fetchAuth } from '../../redux/slices/auth/actions'
-import { selectIsAuth } from '../../redux/slices/auth/auth'
-import styles from './login.module.scss'
+import styles from '@pages/login/login.module.scss'
+import { fetchAuth } from '@redux/slices/auth/actions'
+import { selectIsAuth } from '@redux/slices/auth/auth'
 
 const Login = () => {
 	const isAuth = useSelector(selectIsAuth)

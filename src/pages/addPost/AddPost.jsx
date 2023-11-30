@@ -50,7 +50,6 @@ const AddPost = () => {
 	const onSubmit = async () => {
 		try {
 			setIsLoading(true)
-			console.log(tags)
 			const fields = {
 				title,
 				imageUrl,

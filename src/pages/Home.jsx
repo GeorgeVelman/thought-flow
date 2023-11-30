@@ -71,9 +71,10 @@ const Home = () => {
 							{
 								user: {
 									fullName: 'Иван Иванов',
-									avatarUrl: 'https://mui.com/static/images/avatar/2.jpg',
+									avatarUrl:
+										'https://www.proficinema.com/upload/iblock/568/568ae99c2c880ceca949a77310b01d2d.jpg',
 								},
-								text: 'When displaying three lines or more, the avatar is not aligned at the top. You should set the prop to align the avatar at the top',
+								text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
 							},
 						]}
 						isLoading={false}

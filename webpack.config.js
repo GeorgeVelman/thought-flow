@@ -1,15 +1,15 @@
 const path = require('path')
-const mode = process.env.NODE_ENV || 'development'
+const mode = process.env.REACT_APP_NODE_ENV || 'development'
 const devMode = mode === 'development'
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const dotenv = require('dotenv').config({ path: __dirname + '/.env' })
 const { DefinePlugin, SourceMapDevToolPlugin } = require('webpack')
-const isDevelopment = process.env.NODE_ENV !== 'production'
+const isDevelopment = process.env.REACT_APP_NODE_ENV !== 'production'
 
 module.exports = {
-	mode: process.env.NODE_ENV || 'development',
+	mode: process.env.REACT_APP_NODE_ENV || 'development',
 
 	entry: {
 		main: path.resolve(__dirname, './src/index.js'),
@@ -55,7 +55,7 @@ module.exports = {
 
 		new DefinePlugin({
 			'process.env': JSON.stringify(dotenv.parsed),
-			'process.env.NODE_ENV': JSON.stringify(
+			'process.env.REACT_APP_NODE_ENV': JSON.stringify(
 				isDevelopment ? 'development' : 'production'
 			),
 		}),

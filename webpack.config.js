@@ -4,6 +4,9 @@ const devMode = mode === 'development'
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const dotenv = require('dotenv').config({ path: __dirname + '/.env' })
+const { DefinePlugin, SourceMapDevToolPlugin } = require('webpack')
+const isDevelopment = process.env.NODE_ENV !== 'production'
 
 module.exports = {
 	mode: process.env.NODE_ENV || 'development',
@@ -48,6 +51,17 @@ module.exports = {
 
 		new MiniCssExtractPlugin({
 			filename: '[name].[contenthash].css',
+		}),
+
+		new DefinePlugin({
+			'process.env': JSON.stringify(dotenv.parsed),
+			'process.env.NODE_ENV': JSON.stringify(
+				isDevelopment ? 'development' : 'production'
+			),
+		}),
+
+		new SourceMapDevToolPlugin({
+			filename: '[file].map',
 		}),
 
 		new CleanWebpackPlugin(),

@@ -43,7 +43,9 @@ const Home = () => {
 								id={obj._id}
 								title={obj.title}
 								imageUrl={
-									obj.imageUrl ? `${REACT_APP_API_URL}${obj.imageUrl}` : ''
+									obj.imageUrl
+										? `${process.env.REACT_APP_API_URL}${obj.imageUrl}`
+										: ''
 								}
 								user={obj.user}
 								updatedAt={obj.updatedAt}

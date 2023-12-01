@@ -59,6 +59,7 @@ const Registration = () => {
 					helperText={errors.fullName?.message}
 					className={styles.field}
 					label='Полное имя'
+					autoComplete='off'
 					fullWidth
 				/>
 				<TextField
@@ -67,6 +68,7 @@ const Registration = () => {
 					helperText={errors.email?.message}
 					className={styles.field}
 					label='E-Mail'
+					autoComplete='off'
 					fullWidth
 				/>
 				<TextField
@@ -75,6 +77,7 @@ const Registration = () => {
 					helperText={errors.password?.message}
 					className={styles.field}
 					label='Пароль'
+					autoComplete='off'
 					fullWidth
 				/>
 				<Button

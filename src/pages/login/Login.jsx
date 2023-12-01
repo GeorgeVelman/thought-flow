@@ -57,6 +57,7 @@ const Login = () => {
 					error={Boolean(errors.email?.message)}
 					helperText={errors.email?.message}
 					{...register('email', { required: 'Укажите почту' })}
+					autoComplete='off'
 					fullWidth
 				/>
 				<TextField
@@ -65,6 +66,7 @@ const Login = () => {
 					error={Boolean(errors.password?.message)}
 					helperText={errors.password?.message}
 					{...register('password', { required: 'Укажите пароль' })}
+					autoComplete='off'
 					fullWidth
 				/>
 				<Button type='submit' size='large' variant='contained' fullWidth>

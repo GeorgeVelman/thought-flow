@@ -10,6 +10,8 @@ import { fetchPosts, fetchTags } from '@redux/slices/posts/actions'
 import { useDispatch, useSelector } from 'react-redux'
 
 const Home = () => {
+	const [value, setValue] = React.useState(0)
+
 	const dispatch = useDispatch()
 	const userData = useSelector(state => state.auth.data)
 	const { posts, tags } = useSelector(state => state.posts)
@@ -22,11 +24,34 @@ const Home = () => {
 		dispatch(fetchTags())
 	}, [])
 
+	const handleChange = (event, newValue) => {
+		setValue(newValue)
+	}
+
+	const sortPostsByViews = posts => {
+		return [...posts].sort((a, b) => b.viewsCount - a.viewsCount)
+	}
+	const sortPostsByDate = posts => {
+		return [...posts].sort(
+			(a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+		)
+	}
+
+	const sortedViewedPosts = sortPostsByViews(posts.items)
+	const sortedDatePosts = sortPostsByDate(posts.items)
+
+	const postsToRender = isPostsLoading
+		? [...Array(5)]
+		: value
+		? sortedViewedPosts
+		: sortedDatePosts
+
 	return (
 		<>
 			<Tabs
+				onChange={handleChange}
 				style={{ marginBottom: 15 }}
-				value={0}
+				value={value}
 				aria-label='basic tabs example'
 			>
 				<Tab label='Новые' />
@@ -34,7 +59,7 @@ const Home = () => {
 			</Tabs>
 			<Grid container spacing={4}>
 				<Grid xs={8} item>
-					{(isPostsLoading ? [...Array(5)] : posts.items).map((obj, index) =>
+					{postsToRender.map((obj, index) =>
 						isPostsLoading ? (
 							<Post key={index} isLoading={true} />
 						) : (
@@ -48,7 +73,7 @@ const Home = () => {
 										: ''
 								}
 								user={obj.user}
-								updatedAt={obj.updatedAt}
+								createdAt={obj.createdAt}
 								viewsCount={obj.viewsCount}
 								commentsCount={3}
 								tags={obj.tags}

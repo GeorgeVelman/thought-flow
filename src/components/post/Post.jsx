@@ -15,7 +15,7 @@ import PostSkeleton from './Skeleton'
 
 export const Post = ({
 	id,
-	updatedAt,
+	createdAt,
 	title,
 	imageUrl,
 	user,
@@ -61,7 +61,7 @@ export const Post = ({
 				/>
 			)}
 			<div className={styles.wrapper}>
-				<UserInfo {...user} updatedAt={updatedAt} />
+				<UserInfo {...user} createdAt={createdAt} />
 				<div className={styles.indention}>
 					<h2
 						className={clsx(styles.title, { [styles.titleFull]: isFullPost })}

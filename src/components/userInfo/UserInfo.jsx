@@ -1,8 +1,8 @@
 import styles from '@components/userInfo/userInfo.module.scss'
 import React from 'react'
 
-const UserInfo = ({ avatarUrl, fullName, updatedAt }) => {
-	const formattedDate = new Date(updatedAt).toLocaleDateString('ru-RU', {
+const UserInfo = ({ avatarUrl, fullName, createdAt }) => {
+	const formattedDate = new Date(createdAt).toLocaleDateString('ru-RU', {
 		day: 'numeric',
 		month: 'long',
 		year: 'numeric',

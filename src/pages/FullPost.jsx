@@ -31,7 +31,6 @@ const FullPost = () => {
 	return (
 		<>
 			<Post
-				updatedAt={data.updatedAt}
 				id={data._id}
 				title={data.title}
 				imageUrl={

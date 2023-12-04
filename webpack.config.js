@@ -20,6 +20,7 @@ module.exports = {
 		clean: true,
 		filename: '[name].[contenthash].js',
 		assetModuleFilename: 'img/[hash][ext]',
+		publicPath: '/',
 	},
 
 	devServer: {

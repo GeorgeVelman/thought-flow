@@ -12,8 +12,10 @@ module.exports = {
 	mode: process.env.REACT_APP_NODE_ENV || 'development',
 
 	entry: {
-		main: path.resolve(__dirname, './src/index.js'),
+		main: path.resolve(__dirname, './src/index.tsx'),
 	},
+
+	devtool: 'inline-source-map',
 
 	output: {
 		path: path.resolve(__dirname, 'dist'),
@@ -32,13 +34,15 @@ module.exports = {
 	},
 
 	resolve: {
-		extensions: ['.*', '.js', '.jsx'],
+		extensions: ['.js', '.jsx', '.ts', '.tsx'],
 		alias: {
 			'@': path.resolve(__dirname, 'src'),
 			'@components': path.resolve(__dirname, 'src/components'),
 			'@pages': path.resolve(__dirname, 'src/pages'),
 			'@images': path.resolve(__dirname, 'src/images'),
 			'@redux': path.resolve(__dirname, 'src/redux'),
+			'@hooks': path.resolve(__dirname, 'src/hooks'),
+			'@types': path.resolve(__dirname, 'src/types'),
 			'@public': path.resolve(__dirname, 'public'),
 		},
 	},
@@ -70,6 +74,12 @@ module.exports = {
 
 	module: {
 		rules: [
+			{
+				test: /\.(ts|tsx)$/,
+				exclude: /node_modules/,
+				use: 'ts-loader',
+			},
+
 			{
 				test: /\.html$/i,
 				loader: 'html-loader',

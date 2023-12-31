@@ -1,0 +1,137 @@
+* {
+	box-sizing: 0;
+	margin: 0;
+}
+.nav {
+	width: 100%;
+	height: 40px;
+	display: flex;
+	align-items: flex-end;
+}
+
+.nav-move {
+	margin-left: 220px;
+	transition: margin 0.5s ease-out 0.5s;
+}
+
+.burger-menu {
+	position: relative;
+	width: 60px;
+	height: 35px;
+	border: none;
+	background-color: white;
+	padding: 0;
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	transform: rotate(0deg);
+	-webkit-transition: 0.5s ease-in-out;
+	-moz-transition: 0.5s ease-in-out;
+	-o-transition: 0.5s ease-in-out;
+	transition: 0.5s ease-in-out;
+	z-index: 10000;
+}
+
+.burger-bar {
+	height: 4px;
+	width: 90%;
+	background-color: black;
+	display: block;
+	left: 0;
+	position: absolute;
+	border-radius: 0.5em;
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	transform: rotate(0deg);
+	-webkit-transition: 0.5s ease-in-out;
+	-moz-transition: 0.5s ease-in-out;
+	-o-transition: 0.5s ease-in-out;
+	transition: 0.5s ease-in-out;
+}
+
+.menu {
+	width: 300px;
+	height: 100vh;
+	background-color: white;
+	position: fixed;
+	transition: transform 300ms ease-in;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+}
+
+.hidden {
+	transform: translateX(-600px);
+	transition: transform 0.5s ease-out;
+}
+
+.visible {
+	display: inherit;
+}
+
+.blackBg {
+	width: 100vw;
+	height: 100vh;
+	z-index: 9998;
+	background-color: #000000;
+	opacity: 0.5;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: background-color 0.5s ease-in-out;
+}
+
+.burger-bar:nth-child(1) {
+	top: 0px;
+}
+
+.burger-bar:nth-child(2) {
+	top: 15px;
+}
+
+.burger-bar:nth-child(3) {
+	top: 30px;
+}
+
+.burger-bar.clicked:nth-child(1) {
+	top: 18px;
+	-webkit-transform: rotate(135deg);
+	-moz-transform: rotate(135deg);
+	-o-transform: rotate(135deg);
+	transform: rotate(135deg);
+}
+
+.burger-bar.clicked:nth-child(2) {
+	opacity: 0;
+	left: -60px;
+}
+
+.burger-bar.clicked:nth-child(3) {
+	top: 18px;
+	-webkit-transform: rotate(-135deg);
+	-moz-transform: rotate(-135deg);
+	-o-transform: rotate(-135deg);
+	transform: rotate(-135deg);
+}
+
+.burger-bar.unclicked {
+	transform: rotate(0) translate(0);
+	transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
+}
+
+@media (max-width: 450px) {
+	.menu {
+		width: 100vw;
+	}
+
+	.nav-move {
+		margin-left: calc(100vw - 80px);
+	}
+}
+
+@media (min-width: 900px) {
+	.hamburgerMenu {
+		display: none;
+	}
+}

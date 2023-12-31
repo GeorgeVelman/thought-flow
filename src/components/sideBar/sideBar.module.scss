@@ -1,0 +1,70 @@
+.wrap {
+	width: inherit;
+	position: fixed;
+	max-height: calc(100vh - 9rem);
+	overflow-y: auto;
+
+	&::-webkit-scrollbar {
+		width: 10px;
+		background-color: #f9f9fd;
+	}
+	&::-webkit-scrollbar-thumb {
+		border-radius: 10px;
+		background-color: #cecece;
+	}
+	&::-webkit-scrollbar-track {
+		border-radius: 10px;
+		background-color: #f9f9fd;
+	}
+}
+
+.list {
+	list-style-type: none;
+	padding: 0;
+	margin-top: 0;
+
+	li {
+		margin-left: 4px;
+	}
+
+	li:hover {
+		background-color: #f9fafa;
+	}
+
+	.activeLink {
+		background-color: #f1f2f3;
+	}
+
+	a {
+		padding: 10px 0;
+		text-decoration: none;
+		display: flex;
+		align-items: center;
+		color: black;
+		border-radius: 6px;
+		justify-content: center;
+	}
+
+	.wrapInner {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+	}
+
+	svg {
+		margin-right: 10px;
+		width: 30px;
+		height: 30px;
+	}
+
+	span {
+		font-size: 16px;
+	}
+}
+
+@media (max-width: 450px) {
+	.wrapInner {
+		width: 150px !important;
+	}
+}

@@ -1,0 +1,11 @@
+.link {
+	text-decoration: none;
+	color: black;
+}
+
+@media (max-width: 450px) {
+	.link {
+		display: flex;
+		justify-content: center;
+	}
+}

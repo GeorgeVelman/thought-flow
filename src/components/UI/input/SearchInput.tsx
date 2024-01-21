@@ -1,5 +1,5 @@
 import icon from '@/assets/search-icon.png'
-import styles from '@components/UI/input/SearchInput.module.scss'
+import styles from '@components/UI/input/searchInput.module.scss'
 import React from 'react'
 
 const SearchInput = () => {

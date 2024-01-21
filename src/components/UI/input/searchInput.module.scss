@@ -1,0 +1,26 @@
+.search {
+	height: 40px;
+	padding-left: 40px;
+	border-radius: 6px;
+	width: 285px;
+	background: #f7f7f7;
+	&:hover,
+	&:focus {
+		background-color: #fff;
+		box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 4px 4px rgba(0, 0, 0, 0.04),
+			0 20px 40px rgba(0, 0, 0, 0.08);
+	}
+}
+
+.icon {
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	left: 5px;
+	top: 5px;
+}
+
+.wrap {
+	position: relative;
+	margin-bottom: 18px;
+}

@@ -1,6 +1,5 @@
-import React from 'react'
-
 import { ICommentsBlock, IUserComment } from '@/types/components/commentsBlock'
+import styles from '@components/commentsBlock/commentsBlock.module.scss'
 import SideBlock from '@components/sideBlock/SideBlock'
 import Avatar from '@mui/material/Avatar'
 import Divider from '@mui/material/Divider'
@@ -9,12 +8,9 @@ import ListItem from '@mui/material/ListItem'
 import ListItemAvatar from '@mui/material/ListItemAvatar'
 import ListItemText from '@mui/material/ListItemText'
 import Skeleton from '@mui/material/Skeleton'
+import React from 'react'
 
-export const CommentsBlock: React.FC<ICommentsBlock> = ({
-	items,
-	children,
-	isLoading = true,
-}) => {
+export const CommentsBlock: React.FC<ICommentsBlock> = ({ items, children, isLoading = true }) => {
 	return (
 		<SideBlock title='Комментарии'>
 			<List>
@@ -22,22 +18,15 @@ export const CommentsBlock: React.FC<ICommentsBlock> = ({
 					<React.Fragment key={index}>
 						<ListItem alignItems='flex-start'>
 							<ListItemAvatar>
-								{isLoading ? (
-									<Skeleton variant='circular' width={40} height={40} />
-								) : (
-									<Avatar alt={obj.user.fullName} src={obj.user.avatarUrl} />
-								)}
+								{isLoading ? <Skeleton variant='circular' width={40} height={40} /> : <Avatar alt={obj.user.fullName} src={obj.user.avatarUrl} />}
 							</ListItemAvatar>
 							{isLoading ? (
-								<div style={{ display: 'flex', flexDirection: 'column' }}>
+								<div className={styles.wrap}>
 									<Skeleton variant='text' height={25} width={120} />
 									<Skeleton variant='text' height={18} width={230} />
 								</div>
 							) : (
-								<ListItemText
-									primary={obj.user.fullName}
-									secondary={obj.text}
-								/>
+								<ListItemText primary={obj.user.fullName} secondary={obj.text} />
 							)}
 						</ListItem>
 						<Divider variant='inset' component='li' />

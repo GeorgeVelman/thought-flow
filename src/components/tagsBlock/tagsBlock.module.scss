@@ -3,6 +3,11 @@
 	color: black;
 }
 
+.listItemBtn {
+	padding-left: 6px;
+	padding-right: 30px;
+}
+
 @media (max-width: 450px) {
 	.link {
 		display: flex;

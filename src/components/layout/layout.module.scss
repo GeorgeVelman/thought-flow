@@ -1,0 +1,13 @@
+.wrap {
+	display: grid;
+	grid-template-columns: 245px 1fr;
+	@media (max-width: 900px) {
+		grid-template-columns: 1fr;
+	}
+}
+
+.sideBarWrap {
+	@media (max-width: 900px) {
+		display: none;
+	}
+}

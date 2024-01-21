@@ -1,18 +1,17 @@
+import { useAppDispatch } from '@/hooks/useAppDispatch'
+import { useAppSelector } from '@/hooks/useAppSelector'
+import { btnLogin } from '@/styled/media-queries-mui'
+import { IParams, IUserData } from '@/types/redux/auth'
 import Button from '@mui/material/Button'
 import Paper from '@mui/material/Paper'
 import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
-import React from 'react'
-import { useForm } from 'react-hook-form'
-
-import { Navigate } from 'react-router-dom'
-
-import { useAppDispatch } from '@/hooks/useAppDispatch'
-import { useAppSelector } from '@/hooks/useAppSelector'
-import { IParams, IUserData } from '@/types/redux/auth'
 import styles from '@pages/login/login.module.scss'
 import { fetchAuth } from '@redux/slices/auth/actions'
 import { selectIsAuth } from '@redux/slices/auth/authSlice'
+import React from 'react'
+import { useForm } from 'react-hook-form'
+import { Navigate } from 'react-router-dom'
 
 const Login = () => {
 	const isAuth = useAppSelector(selectIsAuth)
@@ -21,13 +20,13 @@ const Login = () => {
 	const {
 		register,
 		handleSubmit,
-		formState: { errors },
+		formState: { errors }
 	} = useForm({
 		defaultValues: {
 			email: '',
-			password: '',
+			password: ''
 		},
-		mode: 'onChange',
+		mode: 'onChange'
 	})
 
 	const onSubmit = async (values: IParams) => {
@@ -71,7 +70,7 @@ const Login = () => {
 					autoComplete='off'
 					fullWidth
 				/>
-				<Button type='submit' size='large' variant='contained' fullWidth>
+				<Button sx={btnLogin} type='submit' size='large' variant='contained' fullWidth>
 					Войти
 				</Button>
 			</form>

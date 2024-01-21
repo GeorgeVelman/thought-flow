@@ -1,3 +1,4 @@
+import { avatar } from '@/styled/media-queries-mui'
 import { IParams, IUserData } from '@/types/redux/auth'
 import { useAppDispatch } from '@hooks/useAppDispatch'
 import { useAppSelector } from '@hooks/useAppSelector'
@@ -20,19 +21,18 @@ const Registration = () => {
 	const {
 		register,
 		handleSubmit,
-		formState: { errors, isValid },
+		formState: { errors, isValid }
 	} = useForm({
 		defaultValues: {
 			fullName: '',
 			email: '',
-			password: '',
+			password: ''
 		},
-		mode: 'onChange',
+		mode: 'onChange'
 	})
 
 	const onSubmit = async (values: IParams) => {
 		const data = await dispatch(fetchRegister(values))
-
 		const payload = data.payload as IUserData
 
 		if (!payload) {
@@ -54,7 +54,7 @@ const Registration = () => {
 				Создание аккаунта
 			</Typography>
 			<div className={styles.avatar}>
-				<Avatar sx={{ width: 100, height: 100 }} />
+				<Avatar sx={avatar} />
 			</div>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<TextField
@@ -84,13 +84,7 @@ const Registration = () => {
 					autoComplete='off'
 					fullWidth
 				/>
-				<Button
-					type='submit'
-					disabled={!isValid}
-					size='large'
-					variant='contained'
-					fullWidth
-				>
+				<Button type='submit' disabled={!isValid} size='large' variant='contained' fullWidth>
 					Зарегистрироваться
 				</Button>
 			</form>

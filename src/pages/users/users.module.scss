@@ -1,0 +1,10 @@
+.title {
+	margin-bottom: 13px;
+	padding-top: 5px;
+}
+
+.wrap {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 10px 40px;
+}

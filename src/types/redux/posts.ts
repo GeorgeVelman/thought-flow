@@ -1,9 +1,6 @@
 import { IUserData } from '@/types/redux/auth'
 
-export type UserDetails = Pick<
-	IUserData,
-	'_id' | 'fullName' | 'email' | 'avatarUrl'
->
+export type UserDetails = Pick<IUserData, '_id' | 'fullName' | 'email' | 'avatarUrl'>
 
 export interface IPostsState {
 	posts: {

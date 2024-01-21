@@ -1,19 +1,6 @@
-import Button from '@mui/material/Button'
-import React from 'react'
-
-import Container from '@mui/material/Container'
-import { Link } from 'react-router-dom'
-
 import exitImg from '@/assets/exitImg.png'
 import logo from '@/assets/logo.png'
-import {
-	loginBtn,
-	loginBtnMobile,
-	newPost,
-	newPostMobile,
-	registerBtn,
-	registerBtnMobile,
-} from '@/styled/media-queries-mui'
+import { loginBtn, loginBtnMobile, newPost, newPostMobile, registerBtn, registerBtnMobile } from '@/styled/media-queries-mui'
 import HamburgerMenu from '@components/hamburgerMenu/HamburgerMenu'
 import styles from '@components/header/header.module.scss'
 import { useAppDispatch } from '@hooks/useAppDispatch'
@@ -22,7 +9,11 @@ import AddIcon from '@mui/icons-material/Add'
 import AppRegistrationIcon from '@mui/icons-material/AppRegistration'
 import LoginIcon from '@mui/icons-material/Login'
 import { Fab } from '@mui/material'
+import Button from '@mui/material/Button'
+import Container from '@mui/material/Container'
 import { logout, selectIsAuth } from '@redux/slices/auth/authSlice'
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
 	const dispatch = useAppDispatch()
@@ -37,15 +28,11 @@ const Header = () => {
 
 	return (
 		<header className={styles.root}>
-			<Container style={{ height: 40 }} maxWidth='lg'>
+			<Container maxWidth='lg'>
 				<div className={styles.inner}>
-					<div style={{ display: 'flex' }}>
+					<div className={styles.wrap}>
 						<HamburgerMenu />
-						<Link
-							className={styles.logo}
-							to='/'
-							onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-						>
+						<Link className={styles.logo} to='/' onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
 							<img src={logo} alt='logo' />
 							<div className={styles.logoText}>through-flow</div>
 						</Link>
@@ -57,29 +44,17 @@ const Header = () => {
 									<Button sx={newPost} variant='contained'>
 										Написать статью
 									</Button>
-									<Fab
-										sx={newPostMobile}
-										size='small'
-										color='primary'
-										aria-label='add'
-									>
+									<Fab sx={newPostMobile} size='small' color='primary' aria-label='add'>
 										<AddIcon />
 									</Fab>
 								</Link>
 								<Link to='/' className={styles.exitLink}>
-									<Button
-										onClick={onClickLogout}
-										variant='contained'
-										color='error'
-									>
+									<Button onClick={onClickLogout} variant='contained' color='error'>
 										Выйти
 									</Button>
 								</Link>
 								<Link to='/' className={styles.exitLinkMobile}>
-									<button
-										className={styles.btnExitMobile}
-										onClick={onClickLogout}
-									>
+									<button className={styles.btnExitMobile} onClick={onClickLogout}>
 										<img src={exitImg} alt='' />
 									</button>
 								</Link>

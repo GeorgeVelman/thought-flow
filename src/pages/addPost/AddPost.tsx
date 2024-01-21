@@ -1,6 +1,7 @@
 import axios from '@/axios'
 import { useAppSelector } from '@/hooks/useAppSelector'
 import { selectIsAuth } from '@/redux/slices/auth/authSlice'
+import PostService from '@/services/PostService'
 import Button from '@mui/material/Button'
 import Paper from '@mui/material/Paper'
 import TextField from '@mui/material/TextField'
@@ -22,19 +23,15 @@ const AddPost = () => {
 	const [imageUrl, setImageUrl] = React.useState('')
 
 	const inputFileRef = React.useRef<HTMLInputElement>(null)
-
 	const isEditing = Boolean(id)
 
-	const handleChangeFile = async (
-		event: React.ChangeEvent<HTMLInputElement | null>
-	) => {
+	const handleChangeFile = async (event: React.ChangeEvent<HTMLInputElement | null>) => {
 		try {
 			const formData = new FormData()
 			const file = event.target.files?.[0]
 			if (file) {
 				formData.append('image', file)
 				const { data } = await axios.post('/upload', formData)
-				console.log(data)
 				setImageUrl(data.url)
 			}
 		} catch (error) {
@@ -58,11 +55,9 @@ const AddPost = () => {
 				title,
 				imageUrl,
 				tags: tags,
-				text,
+				text
 			}
-			const { data } = isEditing
-				? await axios.patch(`/posts/${id}`, fields)
-				: await axios.post('/posts', fields)
+			const { data } = isEditing ? await axios.patch(`/posts/${id}`, fields) : await axios.post('/posts', fields)
 
 			const _id = isEditing ? id : data._id
 
@@ -75,18 +70,14 @@ const AddPost = () => {
 
 	React.useEffect(() => {
 		if (id) {
-			axios
-				.get(`/posts/${id}`)
-				.then(({ data }) => {
-					setTitle(data.title)
-					setText(data.text)
-					setTags(data.tags.join())
-					setImageUrl(data.imageUrl)
-				})
-				.catch(err => {
-					console.warn(err)
-					alert('Ошибка при получении статьи!')
-				})
+			const fetchPost = async () => {
+				const data = await PostService.getPostById(id!)
+				setTitle(data.title)
+				setText(data.text)
+				setTags(data.tags.join())
+				setImageUrl(data.imageUrl)
+			}
+			fetchPost()
 		}
 	}, [])
 
@@ -100,8 +91,8 @@ const AddPost = () => {
 			autosave: {
 				enabled: true,
 				delay: 1000,
-				uniqueId: id + '',
-			},
+				uniqueId: id + ''
+			}
 		}),
 		[]
 	)
@@ -123,26 +114,13 @@ const AddPost = () => {
 			>
 				Загрузить превью
 			</Button>
-			<input
-				ref={inputFileRef}
-				type='file'
-				onChange={handleChangeFile}
-				hidden
-			/>
+			<input ref={inputFileRef} type='file' onChange={handleChangeFile} hidden />
 			{imageUrl && (
 				<>
-					<Button
-						variant='contained'
-						color='error'
-						onClick={onClickRemoveImage}
-					>
+					<Button variant='contained' color='error' onClick={onClickRemoveImage}>
 						Удалить
 					</Button>
-					<img
-						className={styles.image}
-						src={`${process.env.REACT_APP_API_URL}${imageUrl}`}
-						alt='Uploaded'
-					/>
+					<img className={styles.image} src={`${process.env.REACT_APP_API_URL}${imageUrl}`} alt='Uploaded' />
 				</>
 			)}
 			<br />
@@ -163,12 +141,7 @@ const AddPost = () => {
 				onChange={e => setTags(e.target.value)}
 				fullWidth
 			/>
-			<SimpleMDE
-				className={styles.editor}
-				value={text}
-				onChange={onChange}
-				options={options}
-			/>
+			<SimpleMDE className={styles.editor} value={text} onChange={onChange} options={options} />
 			<div className={styles.buttons}>
 				<Button onClick={onSubmit} size='large' variant='contained'>
 					{isEditing ? 'Сохранить' : 'Опубликовать'}

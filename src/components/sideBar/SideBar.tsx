@@ -27,11 +27,7 @@ const SideBar: React.FC<ISideBarProps> = ({ closeSideBar }) => {
 			<nav>
 				<ul className={styles.list}>
 					<li>
-						<Link
-							to='/'
-							className={activeLink === '/' ? styles.activeLink : ''}
-							onClick={() => handleLinkClick('/')}
-						>
+						<Link to='/' className={activeLink === '/' ? styles.activeLink : ''} onClick={() => handleLinkClick('/')}>
 							<div className={styles.wrapInner}>
 								<HomeIcon fontSize='large' />
 								<span>Главная</span>
@@ -39,11 +35,7 @@ const SideBar: React.FC<ISideBarProps> = ({ closeSideBar }) => {
 						</Link>
 					</li>
 					<li>
-						<Link
-							to='/'
-							className={activeLink === '/users' ? styles.activeLink : ''}
-							onClick={() => handleLinkClick('/users')}
-						>
+						<Link to='/' className={activeLink === '/users' ? styles.activeLink : ''} onClick={() => handleLinkClick('/users')}>
 							<div className={styles.wrapInner}>
 								<GroupIcon fontSize='large' />
 								<span>Пользователи</span>
@@ -51,11 +43,7 @@ const SideBar: React.FC<ISideBarProps> = ({ closeSideBar }) => {
 						</Link>
 					</li>
 					<li>
-						<Link
-							to='/'
-							className={activeLink === '/saved' ? styles.activeLink : ''}
-							onClick={() => handleLinkClick('/saved')}
-						>
+						<Link to='/' className={activeLink === '/saved' ? styles.activeLink : ''} onClick={() => handleLinkClick('/saved')}>
 							<div className={styles.wrapInner}>
 								<TurnedInIcon fontSize='large' />
 								<span>Сохраненное</span>
@@ -63,11 +51,7 @@ const SideBar: React.FC<ISideBarProps> = ({ closeSideBar }) => {
 						</Link>
 					</li>
 					<li>
-						<Link
-							to='/'
-							className={activeLink === '/contacts' ? styles.activeLink : ''}
-							onClick={() => handleLinkClick('/contacts')}
-						>
+						<Link to='/' className={activeLink === '/contacts' ? styles.activeLink : ''} onClick={() => handleLinkClick('/contacts')}>
 							<div className={styles.wrapInner}>
 								<ContactsIcon fontSize='large' />
 								<span>Контакты</span>
@@ -75,11 +59,7 @@ const SideBar: React.FC<ISideBarProps> = ({ closeSideBar }) => {
 						</Link>
 					</li>
 					<li>
-						<Link
-							to='/'
-							className={activeLink === '/tags' ? styles.activeLink : ''}
-							onClick={() => handleLinkClick('/tags')}
-						>
+						<Link to='/' className={activeLink === '/tags' ? styles.activeLink : ''} onClick={() => handleLinkClick('/tags')}>
 							<div className={styles.wrapInner}>
 								<SellIcon fontSize='large' />
 								<span>Теги</span>

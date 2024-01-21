@@ -16,6 +16,10 @@
 	height: 40px;
 }
 
+.wrap {
+	display: flex;
+}
+
 .logo {
 	display: flex;
 	text-decoration: none;
@@ -42,6 +46,10 @@
 	}
 }
 
+.logoText {
+	font-size: 16px;
+}
+
 .buttons {
 	display: flex;
 
@@ -53,6 +61,7 @@
 
 	Button {
 		height: 40px;
+		font-size: 14px;
 	}
 
 	.btnMobile {

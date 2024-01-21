@@ -12,7 +12,7 @@ module.exports = {
 	mode: process.env.REACT_APP_NODE_ENV || 'development',
 
 	entry: {
-		main: path.resolve(__dirname, './src/index.tsx'),
+		main: path.resolve(__dirname, './src/index.tsx')
 	},
 
 	devtool: 'inline-source-map',
@@ -22,7 +22,7 @@ module.exports = {
 		clean: true,
 		filename: '[name].[contenthash].js',
 		assetModuleFilename: 'img/[hash][ext]',
-		publicPath: '/',
+		publicPath: '/'
 	},
 
 	devServer: {
@@ -30,7 +30,7 @@ module.exports = {
 		port: 8080,
 		hot: true,
 		open: true,
-		historyApiFallback: true,
+		historyApiFallback: true
 	},
 
 	resolve: {
@@ -43,33 +43,31 @@ module.exports = {
 			'@redux': path.resolve(__dirname, 'src/redux'),
 			'@hooks': path.resolve(__dirname, 'src/hooks'),
 			'@types': path.resolve(__dirname, 'src/types'),
-			'@public': path.resolve(__dirname, 'public'),
-		},
+			'@public': path.resolve(__dirname, 'public')
+		}
 	},
 
 	plugins: [
 		new HtmlWebpackPlugin({
 			title: 'webpack Boilerplate',
 			template: path.resolve(__dirname, './public/index.html'),
-			filename: 'index.html',
+			filename: 'index.html'
 		}),
 
 		new MiniCssExtractPlugin({
-			filename: '[name].[contenthash].css',
+			filename: '[name].[contenthash].css'
 		}),
 
 		new DefinePlugin({
 			'process.env': JSON.stringify(dotenv.parsed),
-			'process.env.REACT_APP_NODE_ENV': JSON.stringify(
-				isDevelopment ? 'development' : 'production'
-			),
+			'process.env.REACT_APP_NODE_ENV': JSON.stringify(isDevelopment ? 'development' : 'production')
 		}),
 
 		new SourceMapDevToolPlugin({
-			filename: '[file].map',
+			filename: '[file].map'
 		}),
 
-		new CleanWebpackPlugin(),
+		new CleanWebpackPlugin()
 	],
 
 	module: {
@@ -77,12 +75,12 @@ module.exports = {
 			{
 				test: /\.(ts|tsx)$/,
 				exclude: /node_modules/,
-				use: 'ts-loader',
+				use: 'ts-loader'
 			},
 
 			{
 				test: /\.html$/i,
-				loader: 'html-loader',
+				loader: 'html-loader'
 			},
 
 			{
@@ -91,9 +89,9 @@ module.exports = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets: ['@babel/preset-env', '@babel/preset-react'],
-					},
-				},
+						presets: ['@babel/preset-env', '@babel/preset-react']
+					}
+				}
 			},
 
 			{
@@ -103,27 +101,27 @@ module.exports = {
 						loader: 'image-webpack-loader',
 						options: {
 							mozjpeg: {
-								progressive: true,
+								progressive: true
 							},
 							// optipng.enabled: false will disable optipng
 							optipng: {
-								enabled: false,
+								enabled: false
 							},
 							pngquant: {
 								quality: [0.65, 0.9],
-								speed: 4,
+								speed: 4
 							},
 							gifsicle: {
-								interlaced: false,
+								interlaced: false
 							},
 							// the webp option will enable WEBP
 							webp: {
-								quality: 75,
-							},
-						},
-					},
+								quality: 75
+							}
+						}
+					}
 				],
-				type: 'asset/resource',
+				type: 'asset/resource'
 			},
 
 			{
@@ -135,21 +133,21 @@ module.exports = {
 						loader: 'postcss-loader',
 						options: {
 							postcssOptions: {
-								plugins: [require('postcss-preset-env')],
-							},
-						},
+								plugins: [require('postcss-preset-env')]
+							}
+						}
 					},
-					'sass-loader',
-				],
+					'sass-loader'
+				]
 			},
 
 			{
 				test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
 				loader: 'file-loader',
 				generator: {
-					filename: 'fonts/[name][ext]',
-				},
-			},
-		],
-	},
+					filename: 'fonts/[name][ext]'
+				}
+			}
+		]
+	}
 }

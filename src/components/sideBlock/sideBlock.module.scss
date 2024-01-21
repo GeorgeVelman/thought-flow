@@ -4,10 +4,8 @@
 
 .title {
 	padding: 15px 0 0 7px;
-}
 
-@media (max-width: 450px) {
-	.title {
+	@media (max-width: 450px) {
 		text-align: center;
 	}
 }

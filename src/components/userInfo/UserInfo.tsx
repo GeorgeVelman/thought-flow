@@ -6,19 +6,14 @@ const UserInfo: React.FC<UserInfo> = ({ avatarUrl, fullName, createdAt }) => {
 	const formattedDate = new Date(createdAt).toLocaleDateString('ru-RU', {
 		day: 'numeric',
 		month: 'long',
-		year: 'numeric',
+		year: 'numeric'
 	})
+
+	const defaultAvatarUrl = 'https://cdn.icon-icons.com/icons2/933/PNG/512/round-account-button-with-user-inside_icon-icons.com_72596.png'
 
 	return (
 		<div className={styles.root}>
-			<img
-				className={styles.avatar}
-				src={
-					avatarUrl ||
-					'https://cdn.icon-icons.com/icons2/933/PNG/512/round-account-button-with-user-inside_icon-icons.com_72596.png'
-				}
-				alt={fullName}
-			/>
+			<img className={styles.avatar} src={avatarUrl || defaultAvatarUrl} alt={fullName} />
 			<div className={styles.userDetails}>
 				<span className={styles.userName}>{fullName}</span>
 				<span className={styles.additional}>{formattedDate}</span>
